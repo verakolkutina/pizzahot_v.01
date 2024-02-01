@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet author="Vera" id="insert_test_data_into_customers_table">
+        <insert tableName="customers">
+            <column name="id" value="1"/>
+            <column name="customer_id" value="1001"/>
+            <column name="name" value="John Doe"/>
+            <column name="password" value="password123"/>
+            <column name="cart_id" value="101"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="id" value="2"/>
+            <column name="customer_id" value="1002"/>
+            <column name="name" value="Jane Doe"/>
+            <column name="password" value="securepass"/>
+            <column name="cart_id" value="102"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="id" value="3"/>
+            <column name="customer_id" value="1003"/>
+            <column name="name" value="Alice Smith"/>
+            <column name="password" value="pass1234"/>
+            <column name="cart_id" value="103"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="id" value="4"/>
+            <column name="customer_id" value="1004"/>
+            <column name="name" value="Bob Johnson"/>
+            <column name="password" value="password!"/>
+            <column name="cart_id" value="104"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="id" value="5"/>
+            <column name="customer_id" value="1005"/>
+            <column name="name" value="Elena Rodriguez"/>
+            <column name="password" value="testpass"/>
+            <column name="cart_id" value="105"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="id" value="6"/>
+            <column name="customer_id" value="1006"/>
+            <column name="name" value="Michael Kim"/>
+            <column name="password" value="pass123"/>
+            <column name="cart_id" value="106"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="id" value="7"/>
+            <column name="customer_id" value="1007"/>
+            <column name="name" value="Sophia Lee"/>
+            <column name="password" value="secure123"/>
+            <column name="cart_id" value="107"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

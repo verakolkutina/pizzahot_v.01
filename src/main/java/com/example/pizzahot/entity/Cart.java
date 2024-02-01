@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 @Entity
@@ -13,34 +14,30 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_id")
-    private Long cartId;
+    private Long id;
 
-
-    @Column(name = "cart_name")
-    private String cartName;
-
+    @Column(name = "customer_id")
+    private Long customerId;
 
     public Cart() {
     }
 
-    public void setCartId(Long cartId) {
-        this.cartId = cartId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setCartName(String cartName) {
-        this.cartName = cartName;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
-
-    /**
-     */
-
-
 
     @Override
     public String toString() {
         return "Cart{" +
-                "cartId=" + cartId +
-                ", cartName='" + cartName + '\'' +
+                "id=" + id +
+                ", customerId=" + customerId +
                 '}';
     }
+
+    /*@OneToMany(mappedBy = "customerId")
+    private List<Cart> carts;*/
 }

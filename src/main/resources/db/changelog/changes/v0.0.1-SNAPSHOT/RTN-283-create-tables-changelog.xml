@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+<!--    <changeSet id="0" author="admin">-->
+    <changeSet id="createCustomersTable" author="Vera">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="customers"/>
+            </not>
+        </preConditions>
+        <createTable tableName="customers">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="customer_id" type="BIGINT"/>
+                    <column name="cart_id" type="BIGINT"/>
+
+            <!-- Другие столбцы, если они есть -->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="createCartsTable" author="Vera">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="carts"/>
+            </not>
+        </preConditions>
+        <createTable tableName="carts">
+            <column name="cart_id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="BIGINT"/>
+            <!-- Другие столбцы, если они есть -->
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="createPizzaTable" author="Vera">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="pizza"/>
+            </not>
+        </preConditions>
+        <createTable tableName="pizza">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="price" type="DOUBLE"/>
+            <column name="image_path" type="VARCHAR(255)"/>
+            <!-- Другие столбцы, если они есть -->
+        </createTable>
+    </changeSet>
+
+
+    </databaseChangeLog>
+

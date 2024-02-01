@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+
+        <!-- ChangeSet for inserting test data into the carts table -->
+        <changeSet author="Vera" id="insert_test_data_into_carts_tables">
+
+            <!-- Customer 1 with 3 carts -->
+            <insert tableName="carts">
+                <column name="cart_id" value="1"/>
+                <column name="customer_id" value="1001"/>
+            </insert>
+            <insert tableName="carts">
+                <column name="cart_id" value="2"/>
+                <column name="customer_id" value="1001"/>
+            </insert>
+            <insert tableName="carts">
+                <column name="cart_id" value="3"/>
+                <column name="customer_id" value="1001"/>
+            </insert>
+
+            <!-- Customer 2 with 2 carts -->
+            <insert tableName="carts">
+                <column name="cart_id" value="4"/>
+                <column name="customer_id" value="1002"/>
+            </insert>
+            <insert tableName="carts">
+                <column name="cart_id" value="5"/>
+                <column name="customer_id" value="1002"/>
+            </insert>
+
+            <!-- Add 6 more carts for other customers -->
+            <insert tableName="carts">
+                <column name="cart_id" value="6"/>
+                <column name="customer_id" value="1003"/>
+            </insert>
+            <insert tableName="carts">
+                <column name="cart_id" value="7"/>
+                <column name="customer_id" value="1003"/>
+            </insert>
+            <insert tableName="carts">
+                <column name="cart_id" value="8"/>
+                <column name="customer_id" value="1004"/>
+            </insert>
+            <insert tableName="carts">
+                <column name="cart_id" value="9"/>
+                <column name="customer_id" value="1004"/>
+            </insert>
+            <insert tableName="carts">
+                <column name="cart_id" value="10"/>
+                <column name="customer_id" value="1005"/>
+            </insert>
+            <insert tableName="carts">
+                <column name="cart_id" value="11"/>
+                <column name="customer_id" value="1005"/>
+            </insert>
+
+        </changeSet>
+
+
+</databaseChangeLog>

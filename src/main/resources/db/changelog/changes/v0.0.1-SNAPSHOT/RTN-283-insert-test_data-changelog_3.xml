@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+        <changeSet author="Vera" id="insert_test_data_into_products_tables">
+
+            <!-- Шокопицца -->
+
+            <insert tableName="pizza">
+                <column name="id" value="1"/>
+                <column name="name" value="Шокопицца"/>
+                <column name="price" value="12.99"/>
+                <column name="image_path" value="path_to_chocolate_pizza_image"/>
+            </insert>
+
+            <!-- Сырная пицца -->
+            <insert tableName="pizza">
+                <column name="id" value="2"/>
+                <column name="name" value="Сырная пицца"/>
+                <column name="price" value="9.99"/>
+                <column name="image_path" value="path_to_cheese_pizza_image"/>
+            </insert>
+
+            <!-- Мясная пицца -->
+            <insert tableName="pizza">
+                <column name="id" value="3"/>
+                <column name="name" value="Мясная пицца"/>
+                <column name="price" value="14.99"/>
+                <column name="image_path" value="path_to_meat_pizza_image"/>
+            </insert>
+
+            <!-- Добавьте еще продуктов по необходимости -->
+
+        </changeSet>
+    </databaseChangeLog>
+

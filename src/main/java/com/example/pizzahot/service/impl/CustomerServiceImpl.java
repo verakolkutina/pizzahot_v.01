@@ -1,10 +1,12 @@
 package com.example.pizzahot.service.impl;
 
 import com.example.pizzahot.entity.Customer;
+import com.example.pizzahot.exception.CustomerNotFoundException;
 import com.example.pizzahot.repository.CustomerRepository;
 import com.example.pizzahot.service.CustomerService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +14,9 @@ import java.util.Optional;
 
 @Getter
 @Service
+@Component
 public class CustomerServiceImpl implements CustomerService {
+
 
     private final CustomerRepository customerRepository;
 
@@ -35,23 +39,22 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void updateCustomer(Long customerId, Customer updatedCustomer) {
-        Customer existingCustomer = customerRepository.findById(customerId).orElse(null);
-        if (existingCustomer != null) {
-            // Обновляем поля клиента
-            existingCustomer.setRole(updatedCustomer.getName());
-            existingCustomer.setId(updatedCustomer.getEmail());
-
-            customerRepository.save(existingCustomer);
+        if (!customerRepository.existsById(customerId)) {
+            throw new CustomerNotFoundException(customerId);
         }
+        Customer existingCustomer = customerRepository.findById(customerId).orElse(null);
 
     }
 
     @Override
     public void deleteCustomer(Long customerId) {
+        if (!customerRepository.existsById(customerId)) {
+            throw new CustomerNotFoundException(customerId);
+        }
         customerRepository.deleteById(customerId);
     }
 
-@Override
+    @Override
     public Optional<Customer> getCustomerById(Long customerId) {
         // Используем CustomerRepository для поиска клиента по идентификатору
         return customerRepository.findById(customerId);
@@ -64,3 +67,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 
 }
+
+
+
+

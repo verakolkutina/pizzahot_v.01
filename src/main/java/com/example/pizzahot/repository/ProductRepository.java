@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    List<Product> findByArt(String art);
+    List<Product> findByPrice(double price);
 
 
 }

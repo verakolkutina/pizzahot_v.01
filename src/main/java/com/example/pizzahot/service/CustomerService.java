@@ -1,12 +1,14 @@
 package com.example.pizzahot.service;
 
 import com.example.pizzahot.entity.Customer;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Component
 public interface CustomerService {
 
 
@@ -19,11 +21,11 @@ public interface CustomerService {
 
     void deleteCustomer(Long customerId);
 
-    default Optional<Customer> getCustomerById(Long customerId) {
-        // Реализация по умолчанию с использованием Optional.ofNullable
-        return Optional.ofNullable(findCustomerById(customerId));
-    }
+    Optional<Customer> getCustomerById(Long customerId);
 
-    // Этот метод должен быть реализован в классе-реализации
+    /**
+     * @param customerId
+     * @return
+     */
     Customer findCustomerById(Long customerId);
 }
